@@ -108,3 +108,14 @@ Temporary Items
 /core/build/
 /example/build/
 /github-documentation/build/
+/.idea/compiler.xml
+/.idea/modules/description-builtbybit/DescriptionGenerator.description-builtbybit.test.iml
+/.idea/modules/description-github/DescriptionGenerator.description-github.test.iml
+/.idea/modules/description-spigot/DescriptionGenerator.description-spigot.test.iml
+/.idea/discord.xml
+/gradle/wrapper/gradle-wrapper.properties
+/gradlew
+/gradlew.bat
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/runConfigurations.xml
