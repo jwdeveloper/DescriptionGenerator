@@ -119,3 +119,9 @@ Temporary Items
 /.idea/jarRepositories.xml
 /.idea/misc.xml
 /.idea/runConfigurations.xml
+/.idea/modules/github-documentation/DescriptionGenerator.github-documentation.test.iml
+/.idea/modules/spigot-documentation/DescriptionGenerator.spigot-documentation.test.iml
+/github-description/build/tmp/jar/MANIFEST.MF
+/core-parser/build/tmp/compileJava/previous-compilation-data.bin
+/github-description/build/tmp/compileJava/previous-compilation-data.bin
+/spigot-description/build/tmp/compileJava/previous-compilation-data.bin
