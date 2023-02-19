@@ -1,0 +1,23 @@
+[COLOR=#123456][SIZE=12][B][I][U]My name if jeff[/COLOR][/SIZE][/B][/I][/U]
+
+[CENTER]
+[URL='google.com'][IMG]https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Savannah.jpg/1200px-Calico_tabby_cat_-_Savannah.jpg[/IMG][/URL]
+[/CENTER]
+
+[URL='google.com']Click here to get free BitCoin[/URL][SIZE=123]look  at this video[/SIZE]
+
+[CENTER]
+[URL='https://www.youtube.com/watch?v=Ezr7k4sIgKk&ab_channel=BrightInsight'][IMG]https://img.youtube.com/vi/Ezr7k4sIgKk/0.jpg[/IMG][/URL]
+[/CENTER]
+
+[CODE=java]
+public void useMethod() { int i =0; return i; }
+[/CODE]
+[LIST]
+[*]siema dodawanie znaczen jest bardzo wazne
+[*]siema2
+[LIST]
+[SPOILER=tajemnica]
+Oto tajemnica wiary
+[/SPOILER]
+
