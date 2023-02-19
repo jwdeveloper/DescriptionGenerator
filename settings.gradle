@@ -1,0 +1,6 @@
+rootProject.name = 'DescriptionGenerator'
+include 'core'
+include 'example'
+include 'github-documentation'
+include 'spigot-documentation'
+

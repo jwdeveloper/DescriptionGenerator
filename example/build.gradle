@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'dg'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(":github-documentation")
+}
+
+test {
+    useJUnitPlatform()
+}
