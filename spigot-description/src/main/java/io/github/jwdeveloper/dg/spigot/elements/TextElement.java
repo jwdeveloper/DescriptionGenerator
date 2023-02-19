@@ -4,8 +4,9 @@ import io.github.jwdeveloper.dg.api.TextBuilder;
 import io.github.jwdeveloper.dg.api.elements.Element;
 import io.github.jwdeveloper.dg.api.elements.ElementRenderer;
 import io.github.jwdeveloper.dg.api.elements.ElementType;
+import io.github.jwdeveloper.dg.spigot.SpigotElement;
 
-public class TextElement implements ElementRenderer {
+public class TextElement extends SpigotElement {
     @Override
     public boolean onElementValidation(Element element) {
         return element.hasElementType(ElementType.TEXT);
@@ -14,67 +15,62 @@ public class TextElement implements ElementRenderer {
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
 
-        if(elementData.hasTag("quote"))
+
+
+
+        if (elementData.hasProperty("color")) {
+            openTag(textBuilder, "COLOR", elementData.getProperty("color"));
+        }
+        if (elementData.hasProperty("font")) {
+            openTag(textBuilder, "FONT", elementData.getProperty("font"));
+        }
+        if (elementData.hasProperty("size")) {
+            openTag(textBuilder, "SIZE", elementData.getProperty("size"));
+        }
+        if(elementData.hasTag("strike"))
         {
-            textBuilder.text(">").space();
+            openTag(textBuilder, "S");
         }
 
-        if(elementData.hasTag("bold"))
-        {
-            textBuilder.text("**").space();
+        if (elementData.hasTag("bold")) {
+            openTag(textBuilder, "B");
         }
-        if(elementData.hasTag("italic"))
-        {
-            textBuilder.text("* *").space();
+        if (elementData.hasTag("italic")) {
+            openTag(textBuilder, "I");
         }
-        if(elementData.hasTag("strikethrough"))
-        {
-            textBuilder.text("~~").space();
+        if (elementData.hasTag("under-line")) {
+            openTag(textBuilder, "U");
         }
-        if(elementData.hasTag("checked"))
-        {
-            textBuilder.space().text("[x]").space();
-        }
-        if(elementData.hasTag("not-checked"))
-        {
-            textBuilder.space().text("[x]").space();
-        }
-        if(elementData.hasTag("emoji"))
-        {
-            textBuilder.text(":");
-        }
-
         String text = elementData.getProperty("text");
         textBuilder.text(text);
     }
 
     @Override
-    public void onBeforeEachChild(TextBuilder textBuilder, Element elementData) {
-
-    }
-
-    @Override
-    public void onAfterEachChild(TextBuilder textBuilder, Element elementData) {
-
-    }
-
-    @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
-        if(elementData.hasTag("bold"))
-        {
-            textBuilder.space().text("**");
+        if (elementData.hasProperty("color")) {
+            closeTag(textBuilder, "COLOR");
         }
-        if(elementData.hasTag("italic"))
-        {
-            textBuilder.space().text("* *");
+        if (elementData.hasProperty("font")) {
+            closeTag(textBuilder, "FONT");
         }
-        if(elementData.hasTag("strikethrough"))
-        {
-            textBuilder.space().text("~~");
+        if (elementData.hasProperty("size")) {
+            closeTag(textBuilder, "SIZE");
         }
-        if(elementData.hasTag("emoji"))
+        if(elementData.hasTag("strike"))
         {
-            textBuilder.text(":");
+            openTag(textBuilder, "S");
+        }
+        if (elementData.hasTag("bold")) {
+            closeTag(textBuilder, "B");
+        }
+        if (elementData.hasTag("italic")) {
+            closeTag(textBuilder, "I");
+        }
+        if (elementData.hasTag("under-line")) {
+            closeTag(textBuilder, "U");
         }
     }
+
+
+
 }

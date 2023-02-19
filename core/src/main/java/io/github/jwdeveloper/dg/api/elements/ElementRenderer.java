@@ -9,9 +9,13 @@ public interface ElementRenderer {
 
     void onElementOpen(TextBuilder textBuilder, Element elementData);
 
-    void onBeforeEachChild(TextBuilder textBuilder, Element elementData);
+    default void onBeforeEachChild(TextBuilder textBuilder, Element elementData)
+    {
+    }
 
-    void onAfterEachChild(TextBuilder textBuilder, Element elementData);
+    default void onAfterEachChild(TextBuilder textBuilder, Element elementData)
+    {
+    }
 
     void onElementClose(TextBuilder textBuilder, Element elementData);
 }

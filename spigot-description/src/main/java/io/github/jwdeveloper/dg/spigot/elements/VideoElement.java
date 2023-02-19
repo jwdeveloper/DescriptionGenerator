@@ -2,13 +2,12 @@ package io.github.jwdeveloper.dg.spigot.elements;
 
 import io.github.jwdeveloper.dg.api.TextBuilder;
 import io.github.jwdeveloper.dg.api.elements.Element;
-import io.github.jwdeveloper.dg.api.elements.ElementRenderer;
 import io.github.jwdeveloper.dg.api.elements.ElementType;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class VideoElement implements ElementRenderer {
+public class VideoElement extends ImageElement {
     @Override
     public boolean onElementValidation(Element element) {
         return element.hasElementType(ElementType.VIDEO);
@@ -17,33 +16,22 @@ public class VideoElement implements ElementRenderer {
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
 
-        String link = elementData.getProperty("link");
-
-        if (link.contains("youtube")) {
-            var id = getYouTubeId(link);
-            textBuilder.text("[MEDIA=youtube]").space().text(id);
-        }
-        else
+        if(elementData.hasProperty("image"))
         {
-            textBuilder.text("[MEDIA]");
+            super.onElementOpen(textBuilder, elementData);
+            return;
         }
+
+        String link = elementData.getProperty("open");
+        if (!link.contains("youtube")) {
+            textBuilder.text("Only youtube videos currently supported");
+            return;
+        }
+        var id = getYouTubeId(link);
+        var imageUrl = "https://img.youtube.com/vi/" + id + "/0.jpg";
+        elementData.addProperty("image", imageUrl);
+        super.onElementOpen(textBuilder, elementData);
     }
-
-    @Override
-    public void onBeforeEachChild(TextBuilder textBuilder, Element elementData) {
-
-    }
-
-    @Override
-    public void onAfterEachChild(TextBuilder textBuilder, Element elementData) {
-
-    }
-
-    @Override
-    public void onElementClose(TextBuilder textBuilder, Element elementData) {
-      textBuilder.text("[/MEDIA]");
-    }
-
 
     private String getYouTubeId(String youTubeUrl) {
         String pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/)[^#\\&\\?]*";

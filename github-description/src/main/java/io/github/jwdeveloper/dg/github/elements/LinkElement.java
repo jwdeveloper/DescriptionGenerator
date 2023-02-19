@@ -17,6 +17,7 @@ public class LinkElement implements ElementRenderer
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         textBuilder.textBetween("[",elementData.getProperty("title"),"]");
         textBuilder.textBetween("(",elementData.getProperty("link"),")");
+        textBuilder.space();
     }
 
     @Override

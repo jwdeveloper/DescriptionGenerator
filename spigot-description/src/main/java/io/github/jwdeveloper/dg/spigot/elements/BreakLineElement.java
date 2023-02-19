@@ -1,18 +1,20 @@
-package io.github.jwdeveloper.dg.github.elements;
+package io.github.jwdeveloper.dg.spigot.elements;
 
 import io.github.jwdeveloper.dg.api.TextBuilder;
 import io.github.jwdeveloper.dg.api.elements.Element;
 import io.github.jwdeveloper.dg.api.elements.ElementRenderer;
+import io.github.jwdeveloper.dg.api.elements.ElementType;
 
-public class ImageElement implements ElementRenderer {
+public class BreakLineElement implements ElementRenderer
+{
     @Override
     public boolean onElementValidation(Element element) {
-        return false;
+        return element.hasElementType(ElementType.CUSTOM) && element.getName().equals("br");
     }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
-
+               textBuilder.newLine().newLine();
     }
 
     @Override

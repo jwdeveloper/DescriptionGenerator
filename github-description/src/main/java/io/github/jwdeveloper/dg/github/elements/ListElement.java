@@ -18,7 +18,7 @@ public class ListElement implements ElementRenderer {
 
     @Override
     public void onBeforeEachChild(TextBuilder textBuilder, Element elementData) {
-        textBuilder.text(" - ").space();
+        textBuilder.newLine().text(" - ");
     }
 
     @Override

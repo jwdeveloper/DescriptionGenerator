@@ -70,6 +70,7 @@ public class ElementsFactoryImpl implements ElementFactory {
     public Element htmlElement(String tagName, Map<String, Object> properties) {
         var builder = getBuilder()
                 .withType(ElementType.HTML)
+                .withName(tagName)
                 .withProperty("tag-name",tagName);
         for(var prop : properties.entrySet())
         {
@@ -82,6 +83,7 @@ public class ElementsFactoryImpl implements ElementFactory {
     public Element htmlElement(String tagName) {
         return getBuilder()
                 .withType(ElementType.HTML)
+                .withName(tagName)
                 .withProperty("tag-name",tagName)
                 .build();
     }

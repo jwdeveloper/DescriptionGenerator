@@ -4,6 +4,9 @@ import io.github.jwdeveloper.dg.api.DescriptionRenderer;
 import io.github.jwdeveloper.dg.api.DescriptionRendererBuilder;
 import io.github.jwdeveloper.dg.DescriptionApi;
 import io.github.jwdeveloper.dg.spigot.elements.*;
+import io.github.jwdeveloper.dg.spigot.elements.ContainerElement;
+import io.github.jwdeveloper.dg.spigot.elements.ImageElement;
+import io.github.jwdeveloper.dg.spigot.elements.VideoElement;
 
 public class SpigotDescription {
     public static final String IGNORE = "spigot-ignore";
@@ -18,7 +21,7 @@ public class SpigotDescription {
     }
 
     public static DescriptionRendererBuilder builder() {
-        return builder("Spigot.txt");
+        return builder("spigot.txt");
     }
 
     public static DescriptionRendererBuilder builder(String fileName) {
@@ -31,7 +34,9 @@ public class SpigotDescription {
                 .withElementRenderer(new ImageElement())
                 .withElementRenderer(new TitleElement())
                 .withElementRenderer(new TextElement())
-                .withElementRenderer(new CenterElement())
+                .withElementRenderer(new BreakLineElement())
+                .withElementRenderer(new SpoilerElement())
+                .withElementRenderer(new ContainerElement())
                 .withElementRenderer(new CodeElement());
     }
 

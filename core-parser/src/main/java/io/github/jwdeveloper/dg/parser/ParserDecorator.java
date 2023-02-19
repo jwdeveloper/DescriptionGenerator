@@ -30,8 +30,13 @@ public class ParserDecorator implements DescriptionDecorator {
         for (var htmlElement : htmlRoot.children()) {
 
             var builder = factory.getBuilder();
-            var elementType = ElementType.byName(htmlElement.tagName());
-            builder.withName(htmlElement.tagName());
+            var name = htmlElement.tagName();
+            if(name.equals("img"))
+            {
+                name = "image";
+            }
+            var elementType = ElementType.byName(name);
+            builder.withName(name);
             builder.withType(elementType);
 
 
@@ -45,6 +50,7 @@ public class ParserDecorator implements DescriptionDecorator {
                 var value = htmlAttribute.getValue();
                 builder.withProperty(key, value);
             }
+
             var newRoot = builder.build();
             if (htmlElement.hasText()) {
                 var text = htmlElement.ownText();
@@ -54,8 +60,6 @@ public class ParserDecorator implements DescriptionDecorator {
                 }
                 newRoot.addProperty("text", text);
             }
-
-
             decorate(htmlElement, newRoot, factory);
             root.addElement(newRoot);
         }

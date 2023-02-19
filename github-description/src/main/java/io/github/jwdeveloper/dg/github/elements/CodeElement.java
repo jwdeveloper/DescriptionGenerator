@@ -15,7 +15,7 @@ public class CodeElement implements ElementRenderer {
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         String language = elementData.getProperty("language");
 
-        textBuilder.space().text("```").textNewLine(language);
+        textBuilder.newLine().text("```").textNewLine(language);
 
         if(elementData.hasProperty("code"))
         {

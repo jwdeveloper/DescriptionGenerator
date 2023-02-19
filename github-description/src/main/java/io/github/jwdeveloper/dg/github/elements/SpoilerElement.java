@@ -1,21 +1,24 @@
-package io.github.jwdeveloper.dg.spigot.elements;
+package io.github.jwdeveloper.dg.github.elements;
 
 import io.github.jwdeveloper.dg.api.TextBuilder;
 import io.github.jwdeveloper.dg.api.elements.Element;
 import io.github.jwdeveloper.dg.api.elements.ElementRenderer;
 import io.github.jwdeveloper.dg.api.elements.ElementType;
 
-public class CenterElement implements ElementRenderer
-{
-
+public class SpoilerElement implements ElementRenderer {
     @Override
     public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.CUSTOM) && element.hasTag("center");
+        return element.hasElementType(ElementType.CUSTOM) && element.getName().equals("spoiler");
     }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
-        textBuilder.text("[CENTER]");
+        textBuilder.newLine()
+                .textNewLine("<details>");
+
+        if (elementData.hasProperty("title")) {
+            textBuilder.textBetween("<summary>", elementData.getProperty("title"), "</summary>").newLine();
+        }
     }
 
     @Override
@@ -30,6 +33,7 @@ public class CenterElement implements ElementRenderer
 
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
-        textBuilder.text("[/CENTER]");
+        textBuilder.newLine().textNewLine("</details>");
+
     }
 }

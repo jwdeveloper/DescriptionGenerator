@@ -13,13 +13,20 @@ public class TitleElement implements ElementRenderer {
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
-        var title = elementData.getProperty("title");
-        if(elementData.hasProperty("size"))
+
+        textBuilder.newLine();
+        var size= getSize(elementData);
+        textBuilder.text("<h").text(size).space();
+
+        if(elementData.hasProperty("align"))
         {
-            int size = elementData.getProperty("size");
-            textBuilder.repeat("#",size);
+            textBuilder.textBetween("align=\"",elementData.getProperty("align"),"\"").space();
         }
-        textBuilder.text(title).newLine();
+        textBuilder.text(">");
+
+        if (elementData.hasProperty("title")) {
+            textBuilder.text(elementData.getProperty("title"));
+        }
     }
 
     @Override
@@ -36,5 +43,15 @@ public class TitleElement implements ElementRenderer {
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
 
+        textBuilder.textBetween("</h", getSize(elementData), ">");
+        textBuilder.newLine();
+    }
+
+
+    private String getSize(Element elementData) {
+        if (elementData.hasProperty("size")) {
+            return elementData.getProperty("size");
+        }
+        return "";
     }
 }

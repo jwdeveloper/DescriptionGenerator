@@ -12,6 +12,7 @@ repositories {
 dependencies {
     implementation project(':core')
     implementation project(':github-description')
+    implementation project(":spigot-description")
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.4'
 }
 

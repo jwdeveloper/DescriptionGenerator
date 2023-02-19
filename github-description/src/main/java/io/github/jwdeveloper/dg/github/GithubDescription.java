@@ -4,6 +4,10 @@ import io.github.jwdeveloper.dg.api.DescriptionRenderer;
 import io.github.jwdeveloper.dg.api.DescriptionRendererBuilder;
 import io.github.jwdeveloper.dg.github.elements.*;
 import io.github.jwdeveloper.dg.DescriptionApi;
+import io.github.jwdeveloper.dg.github.elements.html.ContainerElement;
+import io.github.jwdeveloper.dg.github.elements.html.HtmlElement;
+import io.github.jwdeveloper.dg.github.elements.html.ImageElement;
+import io.github.jwdeveloper.dg.github.elements.html.VideoElement;
 
 public class GithubDescription {
     public static final String IGNORE = "github-ignore";
@@ -32,6 +36,9 @@ public class GithubDescription {
                 .withElementRenderer(new TitleElement())
                 .withElementRenderer(new TextElement())
                 .withElementRenderer(new BreakLineElement())
+                .withElementRenderer(new SpoilerElement())
+                .withElementRenderer(new HtmlElement())
+                .withElementRenderer(new ContainerElement())
                 .withElementRenderer(new CodeElement());
     }
 

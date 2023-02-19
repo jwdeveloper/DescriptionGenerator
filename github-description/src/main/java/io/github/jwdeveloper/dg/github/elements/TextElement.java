@@ -21,23 +21,23 @@ public class TextElement implements ElementRenderer {
 
         if(elementData.hasTag("bold"))
         {
-            textBuilder.text("**").space();
+            textBuilder.text("**");
         }
         if(elementData.hasTag("italic"))
         {
-            textBuilder.text("* *").space();
+            textBuilder.text("* *");
         }
         if(elementData.hasTag("strikethrough"))
         {
-            textBuilder.text("~~").space();
+            textBuilder.text("~~");
         }
         if(elementData.hasTag("checked"))
         {
-            textBuilder.space().text("[x]").space();
+            textBuilder.space().text("[x]");
         }
         if(elementData.hasTag("not-checked"))
         {
-            textBuilder.space().text("[x]").space();
+            textBuilder.space().text("[x]");
         }
         if(elementData.hasTag("emoji"))
         {
@@ -62,15 +62,15 @@ public class TextElement implements ElementRenderer {
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
         if(elementData.hasTag("bold"))
         {
-            textBuilder.space().text("**");
+            textBuilder.text("**");
         }
         if(elementData.hasTag("italic"))
         {
-            textBuilder.space().text("* *");
+            textBuilder.text("* *");
         }
         if(elementData.hasTag("strikethrough"))
         {
-            textBuilder.space().text("~~");
+            textBuilder.text("~~");
         }
         if(elementData.hasTag("emoji"))
         {

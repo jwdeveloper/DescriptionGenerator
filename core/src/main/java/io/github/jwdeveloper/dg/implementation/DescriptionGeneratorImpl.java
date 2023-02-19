@@ -55,11 +55,9 @@ public class DescriptionGeneratorImpl implements DescriptionGenerator {
 
     public String getRender(Element root, DescriptionRenderer descriptionRenderer) {
         var builder = new TextBuilderImpl();
-        var i =0;
         for (var element : root.getElements()) {
             var out = getRenderOutput(element, descriptionRenderer);
             builder.text(out);
-            i++;
         }
         return builder.build();
     }
@@ -87,8 +85,31 @@ public class DescriptionGeneratorImpl implements DescriptionGenerator {
         }
 
         for (var child : element.getElements()) {
-            var childContent = getRenderOutput(child, descriptionRenderer);
-            childContents.add(childContent);
+
+            for(var props : element.getProperties().entrySet())
+            {
+                if(child.hasProperty(props.getKey()))
+                {
+                    continue;
+                }
+                child.addProperty(props.getKey(), props.getValue());
+            }
+            for(var tag : element.getTags())
+            {
+                if(child.hasTag(tag))
+                {
+                    continue;
+                }
+                child.addTag(tag);
+            }
+
+
+            var childOutput = getRenderOutput(child, descriptionRenderer);
+            if(childOutput.equals(""))
+            {
+                continue;
+            }
+            childContents.add(childOutput);
         }
 
         var result = new TextBuilderImpl();
