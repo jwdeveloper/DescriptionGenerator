@@ -44,11 +44,10 @@ public class ElementImpl implements Element {
 
     @Override
     public <T> T getProperty(String property) {
-        if(!data.getProperties().containsKey(property))
-        {
-            throw new RuntimeException("element not contains property: "+property);
+        if (!data.getProperties().containsKey(property)) {
+            throw new RuntimeException("element " + getName() + " not contains property: " + property);
         }
-        return  (T)data.getProperties().get(property);
+        return (T) data.getProperties().get(property);
     }
 
     @Override
@@ -107,7 +106,12 @@ public class ElementImpl implements Element {
 
     @Override
     public boolean hasTag(String tag) {
-        return getTags().contains(tag);
+        for (var tagg : getTags()) {
+            if (tagg.equals(tag)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

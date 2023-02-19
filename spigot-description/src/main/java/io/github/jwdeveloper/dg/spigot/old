@@ -1,3 +1,35 @@
+
+
+
+
+ UDG - Universal Description Generator
+
+
+ <list>
+  <text name = "siema"  #label #bold # >
+    Siema witam was
+  </text>
+
+   <text name = "siema"  #label #bold # >
+      Siema witam was
+    </text>
+
+      <text name = "siema"  #label #bold # >
+        Siema witam was
+      </text>
+ </list>
+
+
+
+
+<image link = "moj link" />
+
+
+
+
+
+
+
  @Override
     public String getName() {
         return "documentation-spigot.txt";

@@ -31,6 +31,7 @@ public class GithubDescription {
                 .withElementRenderer(new ImageElement())
                 .withElementRenderer(new TitleElement())
                 .withElementRenderer(new TextElement())
+                .withElementRenderer(new BreakLineElement())
                 .withElementRenderer(new CodeElement());
     }
 

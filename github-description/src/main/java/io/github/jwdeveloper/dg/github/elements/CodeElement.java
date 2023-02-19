@@ -14,9 +14,16 @@ public class CodeElement implements ElementRenderer {
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         String language = elementData.getProperty("language");
-        String code = elementData.getProperty("code");
+
         textBuilder.space().text("```").textNewLine(language);
-        textBuilder.text(code);
+
+        if(elementData.hasProperty("code"))
+        {
+            String code = elementData.getProperty("code");
+            textBuilder.text(code);
+        }
+
+
     }
 
     @Override
@@ -31,6 +38,6 @@ public class CodeElement implements ElementRenderer {
 
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
-        textBuilder.space().textNewLine("```");
+        textBuilder.space().newLine().textNewLine("```");
     }
 }
