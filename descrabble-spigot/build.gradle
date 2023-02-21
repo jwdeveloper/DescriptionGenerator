@@ -2,16 +2,16 @@ plugins {
     id 'java'
 }
 
-group 'dg'
-version '1.0-SNAPSHOT'
+group 'io.github.jwdeveloper.dg.spigot'
+version '1.0.0'
 
-
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     implementation project(':api')
     implementation project(':core')
-    implementation project(":descrabble-github")
-    implementation project(":descrabble-spigot")
 }
 
 test {

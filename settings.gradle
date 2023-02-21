@@ -1,7 +1,10 @@
 rootProject.name = 'DescriptionGenerator'
+include 'api'
 include 'core'
+include 'descrabble-github'
+include 'descrabble-spigot'
+
 include 'example'
-include 'github-description'
-include 'spigot-description'
-include 'core-parser'
+
+
 
