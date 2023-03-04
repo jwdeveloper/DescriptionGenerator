@@ -7,10 +7,6 @@ import io.github.jwdeveloper.descrabble.api.elements.ElementRenderer;
 import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 
 public class SpoilerElement extends SpigotElement {
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.CUSTOM) && element.getName().equals("spoiler");
-    }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {

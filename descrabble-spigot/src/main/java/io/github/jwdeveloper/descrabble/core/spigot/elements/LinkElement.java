@@ -8,10 +8,6 @@ import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 
 public class LinkElement extends SpigotElement {
 
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.LINK);
-    }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {

@@ -5,10 +5,6 @@ import io.github.jwdeveloper.descrabble.api.TextBuilder;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
 
 public class ImageElement extends SpigotElement {
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.getName().equals("image");
-    }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {

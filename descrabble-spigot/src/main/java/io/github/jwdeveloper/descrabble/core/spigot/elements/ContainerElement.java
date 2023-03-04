@@ -9,33 +9,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContainerElement extends SpigotElement {
-    private List<String> allowedNames;
-
-    public ContainerElement() {
-        allowedNames = new ArrayList<>();
-        allowedNames.add("left");
-        allowedNames.add("right");
-        allowedNames.add("center");
-        allowedNames.add("container");
-    }
-
-    private boolean hasValidName(String name) {
-        for (var allowed : allowedNames) {
-            if (allowed.equals(name))
-                return true;
-        }
-        return false;
-    }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine().newLine();
-        openTag(textBuilder,elementData.getName());
+        var position = "center";
+        if(elementData.hasTag("left"))
+        {
+            position = "left";
+        }
+        if(elementData.hasTag("right"))
+        {
+            position = "right";
+        }
+        openTag(textBuilder,position);
     }
 
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
-        closeTag(textBuilder,elementData.getName());
+        var position = "center";
+        if(elementData.hasTag("left"))
+        {
+            position = "left";
+        }
+        if(elementData.hasTag("right"))
+        {
+            position = "right";
+        }
+        closeTag(textBuilder,position);
         textBuilder.newLine().newLine();
     }
 
@@ -43,11 +44,5 @@ public class ContainerElement extends SpigotElement {
     public void onBeforeEachChild(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine();
     }
-
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.CUSTOM) && hasValidName(element.getName());
-    }
-
 
 }

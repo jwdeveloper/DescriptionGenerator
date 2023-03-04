@@ -1,11 +1,18 @@
 package io.github.jwdeveloper.descrabble.core.spigot;
 
+import io.github.jwdeveloper.descrabble.api.DescrabbleElementRenderer;
+import io.github.jwdeveloper.descrabble.api.ElementRendererModel;
 import io.github.jwdeveloper.descrabble.api.TextBuilder;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
 import io.github.jwdeveloper.descrabble.api.elements.ElementRenderer;
 
-public class SpigotElement implements ElementRenderer
+public class SpigotElement implements DescrabbleElementRenderer
 {
+
+    @Override
+    public void onRegistration(ElementRendererModel model) {
+
+    }
     protected void openTag(TextBuilder textBuilder, String name) {
         openTag(textBuilder, name, null);
     }
@@ -21,12 +28,6 @@ public class SpigotElement implements ElementRenderer
     protected void closeTag(TextBuilder textBuilder, String name) {
         textBuilder.textBetween("[/", name.toUpperCase(), "]");
     }
-
-    @Override
-    public boolean onElementValidation(Element element) {
-        return false;
-    }
-
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine();
@@ -36,4 +37,6 @@ public class SpigotElement implements ElementRenderer
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine();
     }
+
+
 }

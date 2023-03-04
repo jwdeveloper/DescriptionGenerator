@@ -8,11 +8,6 @@ import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 
 public class CodeElement extends SpigotElement {
     @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.CODE);
-    }
-
-    @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         if(elementData.hasProperty("language"))
         {

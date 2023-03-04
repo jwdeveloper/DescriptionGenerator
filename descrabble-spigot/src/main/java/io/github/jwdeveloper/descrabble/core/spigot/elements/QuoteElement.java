@@ -8,10 +8,7 @@ import io.github.jwdeveloper.descrabble.core.spigot.SpigotElement;
 public class QuoteElement extends SpigotElement
 {
 
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.CUSTOM) && element.getName().equals("quote");
-    }
+
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {

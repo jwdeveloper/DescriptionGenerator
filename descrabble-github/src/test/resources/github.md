@@ -24,11 +24,12 @@ Hello world
  - one
  - two
  - three
+> 
 
 <details>
 
 </details>
 Hello world ążźćęd
 <div align="center" >
-This text will be in the center mark</div>
+This text will be in the center</div>
 

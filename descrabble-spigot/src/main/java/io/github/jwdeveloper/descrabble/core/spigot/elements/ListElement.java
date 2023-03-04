@@ -7,10 +7,6 @@ import io.github.jwdeveloper.descrabble.api.elements.ElementRenderer;
 import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 
 public class ListElement extends SpigotElement {
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.LIST);
-    }
 
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {

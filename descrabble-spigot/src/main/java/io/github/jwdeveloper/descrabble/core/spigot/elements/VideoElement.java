@@ -9,11 +9,6 @@ import java.util.regex.Pattern;
 
 public class VideoElement extends ImageElement {
     @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.VIDEO);
-    }
-
-    @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
 
         if(elementData.hasProperty("image"))

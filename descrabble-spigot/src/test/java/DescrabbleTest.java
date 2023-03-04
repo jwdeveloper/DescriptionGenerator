@@ -1,12 +1,11 @@
 import io.github.jwdeveloper.descrabble.Descrabble;
-import io.github.jwdeveloper.descrabble.github.DescrabbleGithub;
+import io.github.jwdeveloper.descrabble.core.spigot.DescrabbleSpigot;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
 public class DescrabbleTest
 {
-
     @Test
     public void test()
     {
@@ -14,10 +13,9 @@ public class DescrabbleTest
         var file = new File(classLoader.getResource("template.html").getFile());
 
         var descrabble = Descrabble.create()
-                .withPlugin(DescrabbleGithub.plugin())
+                .withPlugin(DescrabbleSpigot.plugin())
                 .withTemplate(file)
                 .build();
-
 
         var outPutPath = "src/test/resources";
         var outputFile = new File(outPutPath);
