@@ -12,6 +12,10 @@ Hello world
 </img>
 </a>
 
+
+
+
+
 ```java
  
 ```
@@ -24,7 +28,7 @@ Hello world
 <details>
 
 </details>
-Hello world  ążźćęd
+Hello world ążźćęd
 <div align="center" >
-This text will be in the center</div>
+This text will be in the center mark</div>
 
