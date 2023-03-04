@@ -63,6 +63,14 @@ public class TemplateParser implements DescriptionDecorator {
                 }
                 newRoot.addProperty("text", text);
             }
+            System.out.println(htmlElement.tagName());
+            if(htmlElement.tagName().equals("html-content"))
+            {
+                var text = factory.textElement(htmlElement.html());
+                newRoot.addElement(text);
+                root.addElement(newRoot);
+                continue;
+            }
             decorate(htmlElement, newRoot, factory);
             root.addElement(newRoot);
         }

@@ -5,7 +5,10 @@ import io.github.jwdeveloper.descrabble.api.TextBuilder;
 
 public interface ElementRenderer {
 
-    boolean onElementValidation(Element element);
+    default boolean onElementValidation(Element element)
+    {
+        return true;
+    }
 
     void onElementOpen(TextBuilder textBuilder, Element elementData);
 

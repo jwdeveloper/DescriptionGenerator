@@ -9,28 +9,21 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ContainerElement extends HtmlElement {
-    private List<String> allowedNames;
-
-    public ContainerElement() {
-        allowedNames = new ArrayList<>();
-        allowedNames.add("left");
-        allowedNames.add("right");
-        allowedNames.add("center");
-        allowedNames.add("container");
-    }
-
-    private boolean hasValidName(String name) {
-        for (var allowed : allowedNames) {
-            if (allowed.equals(name))
-                return true;
-        }
-        return false;
-    }
-
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         var properties = new HashMap<String, Object>();
-        properties.put("align", elementData.getName());
+
+        var position = "center";
+        if(elementData.hasTag("left"))
+        {
+            position = "left";
+        }
+        if(elementData.hasTag("right"))
+        {
+            position = "right";
+        }
+
+        properties.put("align", position);
         renderOpenTag(textBuilder, "div", properties);
     }
 
@@ -40,10 +33,6 @@ public class ContainerElement extends HtmlElement {
         textBuilder.newLine();
     }
 
-    @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.CUSTOM) && hasValidName(element.getName());
-    }
 
 
 }

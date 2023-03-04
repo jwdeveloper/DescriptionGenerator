@@ -12,19 +12,19 @@ import io.github.jwdeveloper.descrabble.core.element.ElementsFactoryImpl;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class DescriptionGeneratorImpl implements DescriptionGenerator {
     private final List<DescriptionRenderer> renderers;
     private final List<DescriptionDecorator> decorators;
+    private final Map<String, String> variables;
 
     public DescriptionGeneratorImpl(List<DescriptionRenderer> renderers,
-                                    List<DescriptionDecorator> decorators) {
+                                    List<DescriptionDecorator> decorators,
+                                    Map<String, String> variables) {
         this.renderers = renderers;
         this.decorators = decorators;
+        this.variables = variables;
     }
 
     public Set<Path> generate(String outputPath) {
@@ -37,14 +37,16 @@ public class DescriptionGeneratorImpl implements DescriptionGenerator {
         }
         var descriptions = new HashMap<Path, String>();
         for (var renderer : renderers) {
-            var output = getRender(root, renderer);
+            var renderOutput = getRender(root, renderer);
+            var output = resolveGlobalVariables(renderOutput);
             var descriptionPath = Paths.get(outputPath, renderer.getFileName());
+
             descriptions.put(descriptionPath, output);
         }
         try {
             Files.createDirectories(Paths.get(outputPath));
             for (var entrySet : descriptions.entrySet()) {
-                Files.write(entrySet.getKey(), entrySet.getValue().getBytes());
+                Files.writeString(entrySet.getKey(), entrySet.getValue());
             }
         } catch (Exception e) {
             throw new RuntimeException("Unable to generate Descriptions", e);
@@ -52,6 +54,15 @@ public class DescriptionGeneratorImpl implements DescriptionGenerator {
         return descriptions.keySet();
     }
 
+    public String resolveGlobalVariables(String input)
+    {
+        for(var entry : variables.entrySet())
+        {
+            var key = "\\{\\{"+entry.getKey()+"}}";
+            input =  input.replaceAll(key, entry.getValue());
+        }
+        return input;
+    }
 
     public String getRender(Element root, DescriptionRenderer descriptionRenderer) {
         var builder = new TextBuilderImpl();
@@ -86,18 +97,14 @@ public class DescriptionGeneratorImpl implements DescriptionGenerator {
 
         for (var child : element.getElements()) {
 
-            for(var props : element.getProperties().entrySet())
-            {
-                if(child.hasProperty(props.getKey()))
-                {
+            for (var props : element.getProperties().entrySet()) {
+                if (child.hasProperty(props.getKey())) {
                     continue;
                 }
                 child.addProperty(props.getKey(), props.getValue());
             }
-            for(var tag : element.getTags())
-            {
-                if(child.hasTag(tag))
-                {
+            for (var tag : element.getTags()) {
+                if (child.hasTag(tag)) {
                     continue;
                 }
                 child.addTag(tag);
@@ -105,8 +112,7 @@ public class DescriptionGeneratorImpl implements DescriptionGenerator {
 
 
             var childOutput = getRenderOutput(child, descriptionRenderer);
-            if(childOutput.equals(""))
-            {
+            if (childOutput.equals("")) {
                 continue;
             }
             childContents.add(childOutput);

@@ -11,17 +11,21 @@ import java.io.File;
 import java.net.URI;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class DescriptionGeneratorBuilderImpl implements DescriptionGeneratorBuilder {
 
     private final List<DescriptionRenderer> renderers;
     private final List<DescriptionDecorator> decorators;
+    private final Map<String,String> variables;
 
     public DescriptionGeneratorBuilderImpl() {
         renderers = new ArrayList<>();
         decorators = new ArrayList<>();
+        variables= new HashMap<>();
     }
 
     @Override
@@ -65,8 +69,14 @@ public class DescriptionGeneratorBuilderImpl implements DescriptionGeneratorBuil
         return this;
     }
 
+    @Override
+    public DescriptionGeneratorBuilder withVariable(String name, String value) {
+        variables.put(name,value);
+        return this;
+    }
+
     public DescriptionGenerator build() {
-        return new DescriptionGeneratorImpl(renderers, decorators);
+        return new DescriptionGeneratorImpl(renderers, decorators, variables);
     }
 
 

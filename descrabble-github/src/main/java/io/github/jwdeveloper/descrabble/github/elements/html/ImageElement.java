@@ -7,13 +7,6 @@ import java.util.HashMap;
 
 public class ImageElement extends HtmlElement {
     @Override
-    public boolean onElementValidation(Element element)
-    {
-        var i =0;
-        return element.getName().equals("image");
-    }
-
-    @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         var props = new HashMap<String,Object>();
         props.put("target","blank");
@@ -41,16 +34,6 @@ public class ImageElement extends HtmlElement {
         }
         renderOpenTag(textBuilder,"a",props);
         renderOpenTag(textBuilder,"img",imgProps);
-    }
-
-    @Override
-    public void onBeforeEachChild(TextBuilder textBuilder, Element elementData) {
-
-    }
-
-    @Override
-    public void onAfterEachChild(TextBuilder textBuilder, Element elementData) {
-
     }
 
     @Override

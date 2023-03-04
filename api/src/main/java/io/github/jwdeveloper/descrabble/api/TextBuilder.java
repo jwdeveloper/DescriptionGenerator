@@ -17,7 +17,7 @@ public interface TextBuilder {
 
     TextBuilder newLine();
 
-    TextBuilder repeat(String text, int time);
+    TextBuilder repeat(String text, int length);
 
     String build();
 }

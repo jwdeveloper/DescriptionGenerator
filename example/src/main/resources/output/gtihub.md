@@ -9,7 +9,7 @@
 
 </div>
 
-[Click here to get free BitCoin](google.com) 
+Polski język ż cz ą ę[Click here to get free BitCoin](google.com) 
 <h123 >look  at this video</h123>
 
 <div align="center" >

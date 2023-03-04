@@ -1,5 +1,7 @@
 package io.github.jwdeveloper.descrabble.github.elements.html;
 
+import io.github.jwdeveloper.descrabble.api.DescrabbleElementRenderer;
+import io.github.jwdeveloper.descrabble.api.ElementRendererModel;
 import io.github.jwdeveloper.descrabble.api.TextBuilder;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
 import io.github.jwdeveloper.descrabble.api.elements.ElementRenderer;
@@ -7,12 +9,11 @@ import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 
 import java.util.Map;
 
-public class HtmlElement implements ElementRenderer {
+public class HtmlElement implements DescrabbleElementRenderer {
     @Override
-    public boolean onElementValidation(Element element) {
-        return element.hasElementType(ElementType.HTML);
-    }
+    public void onRegistration(ElementRendererModel model) {
 
+    }
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         renderOpenTag(textBuilder, elementData.getName(), elementData.getProperties());
@@ -51,4 +52,6 @@ public class HtmlElement implements ElementRenderer {
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
         renderCloseTag(textBuilder, elementData.getName());
     }
+
+
 }

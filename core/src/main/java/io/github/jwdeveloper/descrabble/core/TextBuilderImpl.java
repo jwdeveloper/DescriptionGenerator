@@ -63,12 +63,9 @@ public class TextBuilderImpl implements TextBuilder {
     }
 
     @Override
-    public TextBuilder repeat(String text, int time)
+    public TextBuilder repeat(String text, int length)
     {
-        for (; time >0; time--)
-        {
-            text(text);
-        }
+        text(text.repeat(length));
         return this;
     }
 
