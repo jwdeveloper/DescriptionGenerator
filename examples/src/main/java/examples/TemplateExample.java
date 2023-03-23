@@ -12,10 +12,10 @@ public class TemplateExample {
             ClassLoader classLoader = TemplateExample.class.getClassLoader();
             File file = new File(classLoader.getResource("template.html").getFile());
 
-            DescriptionGenerator generator = Descrabble.descriptionBuilder()
+            DescriptionGenerator generator = Descrabble.create()
                     .withTemplate(file)
-                    .withRenderer(DescrabbleGithub.createRenderer())
-                    .withRenderer(DescrabbleSpigot.create())
+                    .withPlugin(DescrabbleGithub.plugin())
+                    .withPlugin(DescrabbleSpigot.plugin())
                     .build();
 
             String output = "C:\\Users\\ja\\IdeaProjects\\DescriptionGenerator\\example\\src\\main\\resources\\output";

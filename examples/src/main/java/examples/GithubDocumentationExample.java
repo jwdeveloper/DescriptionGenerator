@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 public class GithubDocumentationExample {
     public static void main(String[] args) {
-        var githubRenderer = DescrabbleGithub.createRenderer();
-        DescriptionGenerator descriptionGenerator = Descrabble.descriptionBuilder()
+        DescriptionGenerator descriptionGenerator = Descrabble.create()
                 .withDecorator((root, factory) ->
                 {
                     String link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
@@ -40,7 +39,7 @@ public class GithubDocumentationExample {
                     root.addElement(codeElement);
 
                 })
-                .withRenderer(githubRenderer)
+                .withPlugin(DescrabbleGithub.plugin())
                 .build();
 
         String outputPath = "D:\\Git\\DescriptionGenerator\\example";

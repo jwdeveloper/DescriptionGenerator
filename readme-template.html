@@ -37,7 +37,7 @@
     Maven
 </title>
 <code language ="html">
-   <html-content>
+   <plain>
 
      <repositories>
         <repository>
@@ -52,21 +52,24 @@
         <version>Tag</version>
     </dependency>
 
-   </html-content>
+   </plain>
 </code>
 
 <title size = "4">
     Gradle
 </title>
 
-<code language ="html">
-    allprojects {
-    repositories {
-    maven { url 'https://jitpack.io' }
-    }
-    }
+<code language ="json">
+        allprojects
+        {
+            repositories
+            {
+             maven { url 'https://jitpack.io' }
+            }
+        }
 
-    dependencies {
-    implementation 'com.github.jwdeveloper:SpigotTester:Tag'
-    }
+        dependencies
+        {
+            implementation 'com.github.jwdeveloper:SpigotTester:Tag'
+        }
 </code>

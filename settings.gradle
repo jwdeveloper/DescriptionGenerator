@@ -4,7 +4,7 @@ include 'core'
 include 'descrabble'
 include 'descrabble-github'
 include 'descrabble-spigot'
-include 'example'
+include 'examples'
 
 
 

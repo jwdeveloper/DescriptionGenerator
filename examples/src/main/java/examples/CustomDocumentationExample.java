@@ -6,13 +6,14 @@ import io.github.jwdeveloper.descrabble.api.DescriptionGenerator;
 import io.github.jwdeveloper.descrabble.api.DescriptionRenderer;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
 import io.github.jwdeveloper.descrabble.api.elements.ElementType;
+import io.github.jwdeveloper.descrabble.core.DescriptionRendererBuilderImpl;
 
 import java.io.IOException;
 
 public class CustomDocumentationExample {
     public static void main(String[] args) throws IOException {
 
-        DescriptionRenderer githubRenderer = Descrabble.descriptionRendererBuilder()
+        DescriptionRenderer githubRenderer = new DescriptionRendererBuilderImpl()
                 .withFileName("CUSTOM_README.md")
                 .withElementRenderer(elementRenderer ->
                 {
@@ -25,7 +26,7 @@ public class CustomDocumentationExample {
                 })
                 .build();
 
-        DescriptionRenderer redditRenderer = Descrabble.descriptionRendererBuilder()
+        DescriptionRenderer redditRenderer = new DescriptionRendererBuilderImpl()
                 .withFileName("CUSTOM_README.md")
                 .withElementRenderer(elementRenderer ->
                 {
@@ -38,7 +39,7 @@ public class CustomDocumentationExample {
                 })
                 .build();
 
-        DescriptionGenerator descriptionGenerator = Descrabble.descriptionBuilder()
+        DescriptionGenerator descriptionGenerator = Descrabble.create()
                 .withDecorator((root, factory) ->
                 {
                     String link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
