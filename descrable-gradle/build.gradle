@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'java-gradle-plugin'
+}
+
+apply plugin: 'maven-publish'
+group = 'io.github.jwdeveloper.dg.gradle' // Replace with your own group ID
+version = '1.0.0' // Replace with your own version number
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+dependencies {
+    implementation gradleApi()
+}
+
+gradlePlugin {
+    plugins {
+        generateFilePlugin {
+            id = 'io.github.jwdeveloper.dg.gradle'
+            implementationClass = 'com.example.GenerateFilePlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        "$project.name"(MavenPublication) {
+            groupId 'io.github.jwdeveloper.dg.gradle'
+            artifactId 'gradle-plugin'
+            version '1.0.0'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = uri("file://${project.buildDir}/repo")
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

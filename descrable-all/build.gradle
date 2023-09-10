@@ -1,0 +1,49 @@
+
+
+plugins {
+    id 'java'
+}
+
+
+group 'dg'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation project(':api')
+    implementation project(':core')
+    implementation project(':descrabble')
+    implementation project(":descrabble-github")
+    implementation project(":descrabble-spigot")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+task fatJar(type: Jar) {
+    classifier = 'all'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.MF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
