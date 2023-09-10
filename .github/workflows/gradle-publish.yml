@@ -36,11 +36,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
    
-    - name: Set Project Version
-      run: ./gradlew setVersion -PnewVersion=${{steps.version.outputs.version_tag}}
-           
-  
-
     - name: Build with Gradle
       run: ./gradlew build
       
