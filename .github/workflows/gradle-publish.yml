@@ -32,13 +32,14 @@ jobs:
           change_path: "."
           short_tags: false
           bump_each_commit: false
-       
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew   
    
     - name: Set Project Version
       run: ./gradlew setVersion -PnewVersion=${{steps.version.outputs.version_tag}}
            
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+  
 
     - name: Build with Gradle
       run: ./gradlew build
