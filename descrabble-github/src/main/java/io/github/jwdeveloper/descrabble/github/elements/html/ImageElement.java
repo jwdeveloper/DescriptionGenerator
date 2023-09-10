@@ -32,6 +32,7 @@ public class ImageElement extends HtmlElement {
         {
             imgProps.put("width",elementData.getProperty("width"));
         }
+        textBuilder.newLine();
         renderOpenTag(textBuilder,"a",props);
         renderOpenTag(textBuilder,"img",imgProps);
     }

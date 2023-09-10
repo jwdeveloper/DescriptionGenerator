@@ -5,6 +5,6 @@ include 'descrabble'
 include 'descrabble-github'
 include 'descrabble-spigot'
 include 'examples'
-
-
+include 'descrable-all'
+include 'descrable-gradle'
 

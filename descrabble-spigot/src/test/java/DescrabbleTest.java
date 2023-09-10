@@ -1,5 +1,5 @@
 import io.github.jwdeveloper.descrabble.Descrabble;
-import io.github.jwdeveloper.descrabble.core.spigot.DescrabbleSpigot;
+import io.github.jwdeveloper.descrabble.spigot.DescrabbleSpigot;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

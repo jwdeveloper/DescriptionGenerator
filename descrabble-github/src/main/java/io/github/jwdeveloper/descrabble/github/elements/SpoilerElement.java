@@ -14,7 +14,6 @@ public class SpoilerElement implements DescrabbleElementRenderer {
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine()
                 .textNewLine("<details>");
-
         if (elementData.hasProperty("title")) {
             textBuilder.textBetween("<summary>", elementData.getProperty("title"), "</summary>").newLine();
         }
@@ -25,6 +24,7 @@ public class SpoilerElement implements DescrabbleElementRenderer {
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
         textBuilder.newLine().textNewLine("</details>");
+        textBuilder.newLine();
 
     }
 

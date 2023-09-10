@@ -1,6 +1,6 @@
-package io.github.jwdeveloper.descrabble.core.spigot.elements;
+package io.github.jwdeveloper.descrabble.spigot.elements;
 
-import io.github.jwdeveloper.descrabble.core.spigot.SpigotElement;
+import io.github.jwdeveloper.descrabble.spigot.SpigotElement;
 import io.github.jwdeveloper.descrabble.api.TextBuilder;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
 

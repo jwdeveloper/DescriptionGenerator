@@ -4,8 +4,11 @@ import io.github.jwdeveloper.descrabble.api.DescrabbleElementRenderer;
 import io.github.jwdeveloper.descrabble.api.ElementRendererModel;
 import io.github.jwdeveloper.descrabble.api.TextBuilder;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
-import io.github.jwdeveloper.descrabble.api.elements.ElementRenderer;
 import io.github.jwdeveloper.descrabble.api.elements.ElementType;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class CodeElement implements DescrabbleElementRenderer {
     @Override
@@ -20,10 +23,20 @@ public class CodeElement implements DescrabbleElementRenderer {
         textBuilder.newLine();
         textBuilder.newLine().text("```").textNewLine(language);
 
-        if(elementData.hasProperty("code"))
-        {
+        if (elementData.hasProperty("code")) {
             String code = elementData.getProperty("code");
             textBuilder.text(code);
+        }
+
+        if (elementData.hasProperty("file")) {
+            var path = elementData.<String>getProperty("file");
+            try {
+                var fullPath = System.getProperty("user.dir")+ File.separator+path;
+                textBuilder.text(Files.readString(Paths.get(fullPath)));
+            } catch (Exception e)
+            {
+                textBuilder.text(e.getMessage());
+            }
         }
     }
 

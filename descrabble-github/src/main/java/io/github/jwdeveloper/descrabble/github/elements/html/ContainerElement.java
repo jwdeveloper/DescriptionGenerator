@@ -11,7 +11,7 @@ import java.util.List;
 public class ContainerElement extends HtmlElement {
     @Override
     public void onElementOpen(TextBuilder textBuilder, Element elementData) {
-        var properties = new HashMap<String, Object>();
+         var properties = new HashMap<String, Object>();
 
         var position = "center";
         if(elementData.hasTag("left"))

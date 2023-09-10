@@ -1,4 +1,4 @@
-package io.github.jwdeveloper.descrabble.core.spigot;
+package io.github.jwdeveloper.descrabble.spigot;
 
 import io.github.jwdeveloper.descrabble.api.DescrabbleElementRenderer;
 import io.github.jwdeveloper.descrabble.api.ElementRendererModel;

@@ -1,8 +1,7 @@
-package io.github.jwdeveloper.descrabble.core.spigot.elements;
+package io.github.jwdeveloper.descrabble.spigot.elements;
 
 import io.github.jwdeveloper.descrabble.api.TextBuilder;
 import io.github.jwdeveloper.descrabble.api.elements.Element;
-import io.github.jwdeveloper.descrabble.api.elements.ElementType;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

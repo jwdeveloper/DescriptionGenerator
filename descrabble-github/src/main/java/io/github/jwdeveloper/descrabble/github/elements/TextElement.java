@@ -52,21 +52,25 @@ public class TextElement implements DescrabbleElementRenderer {
 
     @Override
     public void onElementClose(TextBuilder textBuilder, Element elementData) {
-        if(elementData.hasTag("bold"))
-        {
-            textBuilder.text("**");
-        }
+
         if(elementData.hasTag("italic"))
         {
             textBuilder.text("* *");
         }
+
+        if(elementData.hasTag("emoji"))
+        {
+            textBuilder.text(":");
+        }
+
         if(elementData.hasTag("strikethrough"))
         {
             textBuilder.text("~~");
         }
-        if(elementData.hasTag("emoji"))
+
+        if(elementData.hasTag("bold"))
         {
-            textBuilder.text(":");
+            textBuilder.text("**");
         }
     }
 }

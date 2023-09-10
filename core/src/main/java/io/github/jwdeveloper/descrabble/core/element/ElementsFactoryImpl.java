@@ -36,6 +36,7 @@ public class ElementsFactoryImpl implements ElementFactory {
     public Element textElement(String text) {
         return getBuilder()
                 .withType(ElementType.TEXT)
+                .withName("text")
                 .withProperty("text",text)
                 .build();
     }

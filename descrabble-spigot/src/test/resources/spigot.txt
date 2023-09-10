@@ -1,10 +1,4 @@
-Hello world
-[URL='google.com']
-[IMG]
-https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Savannah.jpg/1200px-Calico_tabby_cat_-_Savannah.jpg
-[/IMG]
-[/URL]
-
+Hello worldHello world[URL='google.com'][IMG]https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Savannah.jpg/1200px-Calico_tabby_cat_-_Savannah.jpg[/IMG][/URL]
 [URL='google.com'][IMG]https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Savannah.jpg/1200px-Calico_tabby_cat_-_Savannah.jpg[/IMG][/URL]
 
 
@@ -12,18 +6,18 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Sav
 
 [/CODE]
 [LIST]
-[*]one
-[*]two
-[*]three
+[*]oneone
+[*]twotwo
+[*]threethree
 [/LIST]
 
 [QUOTE]
-Quite example
+Quite exampleQuite example
 [/QUOTE]
 [SPOILER]
-
+Spoiler example
 [/SPOILER]Hello world ążźćęd
 
 [CENTER]
-This text will be in the center[/CENTER]
+This text will be in the centerThis text will be in the center[/CENTER]
 
