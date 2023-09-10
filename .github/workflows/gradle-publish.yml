@@ -19,7 +19,7 @@ jobs:
       with:
         java-version: '16'
         distribution: 'corretto'
-        cache: maven
+    
     - name: 2.5 Create Versions
       id: version
       uses: PaulHatch/semantic-version@v4.0.2
